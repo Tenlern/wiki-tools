@@ -17,11 +17,10 @@
                     <ul>
                         @foreach($tags as $tag)
                             <li>
-                                {{ $tag->name }}
+                                {{ $tag->name['en'] }}
                             </li>
                         @endforeach
                     </ul>
-                    You're logged in!
                 </div>
             </div>
         </div>
