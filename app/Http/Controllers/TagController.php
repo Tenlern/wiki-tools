@@ -5,29 +5,29 @@ namespace App\Http\Controllers;
 use App\Models\Tag;
 use App\Http\Requests\StoreTagRequest;
 use App\Http\Requests\UpdateTagRequest;
-use Inertia\Inertia;
-use Inertia\Response;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return Application|Factory|\Illuminate\Contracts\View\View
      */
-    public function index(): Response
+    public function index()
     {
         $tags = Tag::get();
 
-        return Inertia::render('Tags', [
-            'tags' => $tags,
-        ]);
+        return view('tags')
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -38,7 +38,7 @@ class TagController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreTagRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(StoreTagRequest $request)
     {
@@ -49,7 +49,7 @@ class TagController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Tag  $tag
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show(Tag $tag)
     {
@@ -60,7 +60,7 @@ class TagController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Tag  $tag
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit(Tag $tag)
     {
@@ -72,7 +72,7 @@ class TagController extends Controller
      *
      * @param  \App\Http\Requests\UpdateTagRequest  $request
      * @param  \App\Models\Tag  $tag
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(UpdateTagRequest $request, Tag $tag)
     {
@@ -83,7 +83,7 @@ class TagController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Tag  $tag
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy(Tag $tag)
     {
