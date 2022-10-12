@@ -17,7 +17,7 @@
 </head>
 <body class="font-sans antialiased">
 <div class="min-h-screen bg-gray-100">
-    @include('layouts.navigation')
+{{--    @include('layouts.navigation')--}}
 
     <!-- Page Heading -->
     @if (isset($header))
@@ -30,7 +30,24 @@
 
     <!-- Page Content -->
     <main id="app">
-        {{ $slot }}
+        <div>@{{ test }}</div>
+{{--        <div class="py-12">--}}
+{{--            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">--}}
+{{--                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">--}}
+{{--                    <div class="p-6 bg-white border-b border-gray-200">--}}
+{{--                        <ul class="columns-3">--}}
+{{--                            @foreach($tags as $tag)--}}
+{{--                                <li class="p-2">--}}
+{{--                                    <a href="text-{{ $tag->text_color }}">--}}
+{{--                                        {{ $tag->name['en'] }}--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                            @endforeach--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
     </main>
 </div>
 </body>

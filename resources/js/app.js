@@ -1,11 +1,15 @@
 import './bootstrap';
 
-import Alpine from 'alpinejs';
 import App from './App.vue'
-import {createApp} from "vue";
+import {createApp, createSSRApp} from "vue";
 
-window.Alpine = Alpine;
+const menu = createApp({})
+const app = createApp({
+    data: () => {
+        return {
+            test: 'TEST'
+        }
+    }
+})
 
-Alpine.start();
-
-createApp(App).mount('#app')
+app.mount('#app')

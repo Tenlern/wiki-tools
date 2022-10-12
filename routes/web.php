@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DebugController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,8 @@ Route::resource('tags', TagController::class);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/debug', DebugController::class);
 
 
 require __DIR__.'/auth.php';
