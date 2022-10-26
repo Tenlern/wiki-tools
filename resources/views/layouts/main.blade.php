@@ -30,7 +30,7 @@
 
     <!-- Page Content -->
     <main id="app">
-        {{ $slot }}
+            {{ $slot }}
     </main>
 </div>
 </body>
