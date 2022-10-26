@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateTagRequest;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 
 class TagController extends Controller
@@ -15,15 +16,13 @@ class TagController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Application|Factory|View
+     * @return JsonResponse
      */
-    public function index(): View|Factory|Application
+    public function index(): JsonResponse
     {
         $tags = Tag::get();
 
-        return view('tags', [
-            'tags' => $tags
-        ]);
+        return response()->json($tags);
     }
 
     /**

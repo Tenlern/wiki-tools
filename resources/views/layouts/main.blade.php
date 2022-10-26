@@ -29,10 +29,12 @@
     @endif
 
     <!-- Page Content -->
-    <main id="app">
-            {{ $slot }}
+    <main>
+        {{ $slot }}
     </main>
 </div>
 @vite(['resources/js/app.js'])
+@isset($scripts)
+@endisset
 </body>
 </html>
