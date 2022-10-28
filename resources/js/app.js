@@ -1,11 +1,12 @@
 // import './bootstrap';
 
-import MenuBar from '$/Components/MenuBar.vue'
-import FilterList from '$/FilterList.vue'
-import {createApp} from "vue/dist/vue.esm-bundler"
+import MenuBar from "$/Components/MenuBar.vue"
+import App from "$/App.vue"
+import {createApp} from "vue"
 
 // const menu = createApp(MenuBar)
-const app = createApp(FilterList)
+const app = createApp(App)
+app.component('MenuBar', MenuBar)
 
 
 // menu.mount('#menu')

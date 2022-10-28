@@ -1,11 +1,11 @@
 <script setup>
-import MenuBar from '$/Components/Menubar.vue'
+// import MenuBar from './Components/Menubar.vue'
 </script>
 
 <template>
     <div class="container flex">
         <aside>
-            <MenuBar />
+            <MenuBar header="Menu" />
         </aside>
 
 
