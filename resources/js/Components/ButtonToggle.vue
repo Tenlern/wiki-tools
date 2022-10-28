@@ -1,25 +1,17 @@
 <script setup>
 import {ref} from "vue";
+import {storeToRefs} from "pinia";
+import {useLanguageStore} from "@/stores/languageStore";
 
 name = "ButtonToggle"
 
-const props = defineProps({
-    modelValue: {
-        type: Boolean,
-        default: false,
-    }
-});
-
-// let key = ref(false);
-
-function switchKey() {
-    props.modelValue = !props.modelValue
-}
+const languageStore = useLanguageStore();
+const { isEng } = storeToRefs(languageStore)
 
 </script>
 
 <template>
-    <button class="bg-indigo-50 p-2" @click="switchKey">{{ modelValue ? 'English' : 'Russian' }}</button>
+    <button class="bg-indigo-50 p-2" @click="languageStore.switchLanguage()">{{ isEng ? 'English' : 'Russian' }}</button>
 </template>
 
 

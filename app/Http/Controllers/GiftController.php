@@ -18,7 +18,7 @@ class GiftController extends Controller
      */
     public function index(): View|Factory|Application
     {
-        $gifts = Gift::paginate();
+        $gifts = Gift::with(['tags'])->paginate();
 
         return view('gifts', [
             'gifts' => $gifts

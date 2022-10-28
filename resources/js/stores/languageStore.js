@@ -1,14 +1,18 @@
 import {acceptHMRUpdate, defineStore} from "pinia";
 import {ref} from "vue";
 
-export const useLanguageStore = defineStore('language', () => {
-    const language = ref(false);
+export const useLanguageStore = defineStore({
+    id: 'language',
 
-    function switchLanguage() {
-        language.value = !language.value;
+    state: () => ({
+        isEng: false
+    }),
+
+    actions: {
+        switchLanguage() {
+            this.isEng = !this.isEng;
+        }
     }
-
-    return { language, switchLanguage }
 });
 
 // make sure to pass the right store definition, `useAuth` in this case.
