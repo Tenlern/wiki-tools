@@ -14,7 +14,7 @@ class DebugController extends Controller
     {
         $tags = Tag::get();
 
-        return view('test', [
+        return view('debug', [
             'tags' => $tags
         ]);
     }

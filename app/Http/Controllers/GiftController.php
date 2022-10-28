@@ -18,7 +18,11 @@ class GiftController extends Controller
      */
     public function index(): View|Factory|Application
     {
-        return view('gifts', );
+        $gifts = Gift::paginate();
+
+        return view('gifts', [
+            'gifts' => $gifts
+        ]);
     }
 
     /**

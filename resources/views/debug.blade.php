@@ -11,9 +11,8 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
-{{--    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>--}}
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', ])
 </head>
 <body class="font-sans antialiased">
 <div class="min-h-screen bg-gray-100">
@@ -30,10 +29,12 @@
 
     <!-- Page Content -->
     <main>
-        <div class="py-12">
+        <div id="app" class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
+                        <button-toggle></button-toggle>
+
                         <ul class="columns-3">
                             @foreach($tags as $tag)
                                 <li class="p-2">
@@ -49,6 +50,6 @@
         </div>
     </main>
 </div>
-<script src="{{ asset('app.js') }}"></script>
+@vite(['resources/js/debug.js'])
 </body>
 </html>
