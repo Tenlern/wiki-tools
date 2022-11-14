@@ -5,12 +5,14 @@ export const useLanguageStore = defineStore({
     id: 'language',
 
     state: () => ({
-        isEng: false
+        isEng: false,
+        langKey: 'ru',
     }),
 
     actions: {
         switchLanguage() {
             this.isEng = !this.isEng;
+            this.langKey = this.isEng ? 'en' : 'ru'
         }
     }
 });

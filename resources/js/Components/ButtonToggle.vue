@@ -1,7 +1,7 @@
 <script setup>
 import {ref} from "vue";
 import {storeToRefs} from "pinia";
-import {useLanguageStore} from "@/stores/languageStore";
+import {useLanguageStore} from "$/stores/languageStore";
 
 name = "ButtonToggle"
 
