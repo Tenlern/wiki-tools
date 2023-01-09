@@ -20,7 +20,7 @@ class GiftController extends Controller
     {
         $gifts = Gift::with(['tags'])->paginate();
 
-        return view('gifts', [
+        return view('gifts/list', [
             'gifts' => $gifts
         ]);
     }
@@ -49,18 +49,20 @@ class GiftController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Gift  $gift
-     * @return \Illuminate\Http\Response
+     * @param Gift $gift
+     * @return Application|Factory|View
      */
     public function show(Gift $gift)
     {
-        //
+        return view('gifts/item', [
+            'gift' => $gift
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Gift  $gift
+     * @param Gift $gift
      * @return \Illuminate\Http\Response
      */
     public function edit(Gift $gift)
@@ -72,7 +74,7 @@ class GiftController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateGiftRequest  $request
-     * @param  \App\Models\Gift  $gift
+     * @param Gift $gift
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateGiftRequest $request, Gift $gift)
@@ -83,7 +85,7 @@ class GiftController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Gift  $gift
+     * @param Gift $gift
      * @return \Illuminate\Http\Response
      */
     public function destroy(Gift $gift)

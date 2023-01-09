@@ -6,7 +6,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h1>List of Gifts</h1>
-        <div class="container" id="search">
+        <div class="container" id="menu">
         </div>
     </x-slot>
 

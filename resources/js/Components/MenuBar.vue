@@ -1,14 +1,27 @@
-<script>
+<script setup>
 import {useLanguageStore} from "$/stores/languageStore";
+import {storeToRefs} from "pinia";
+import {useGiftStore} from "@/stores/giftStore";
 
 name= "MenuBar"
 
-const store = useLanguageStore()
+const languageStore = useLanguageStore()
+const { isEng } = storeToRefs(languageStore)
+const giftStore = useGiftStore()
+const { isEditMode } = storeToRefs(giftStore)
 
 </script>
 
 <template>
-    <button class="bg-indigo-500 rounded-full"> Translate </button>
+    <div class="flex">
+        <button @click="languageStore.switchLanguage()" class="p-2 bg-indigo-400 rounded-full">
+            {{ isEng ? 'English' : 'Russian' }}
+        </button>
+
+        <button @click="giftStore.switchEditMode()" class="p-2 bg-indigo-400 rounded-full">
+            {{ isEditMode ? 'Cancel' : 'Edit' }}
+        </button>
+    </div>
 </template>
 
 <style scoped>
