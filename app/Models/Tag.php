@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Tag extends Model
 {
@@ -14,5 +16,23 @@ class Tag extends Model
     protected $casts = [
         'name' => 'array'
     ];
+
+    /**
+     * Upper-level tag
+     * @return BelongsTo
+     */
+    public function parent(): BelongsTo
+    {
+        return $this->belongsTo(__CLASS__, 'parent_id');
+    }
+
+    /**
+     * Lower-level tags
+     * @return HasMany
+     */
+    public function children(): HasMany
+    {
+        return $this->hasMany(__CLASS__, 'parent_id');
+    }
 
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DebugController;
 use App\Http\Controllers\GiftController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,7 +27,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
     })->name('dashboard');
 
     Route::resource('tags', TagController::class);
-    Route::resource('gifts', GiftController::class);
+    Route::resource('items', ItemController::class);
 });
 
 
