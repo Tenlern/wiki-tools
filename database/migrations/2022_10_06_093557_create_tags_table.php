@@ -13,12 +13,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tags', function (Blueprint $table) {
+        Schema::create('tags', static function (Blueprint $table) {
+            $table->comment('Tags');
+
             $table->id();
 
-            $table->json('name')->comment('Название');
-            $table->string('bg_color')->comment('Цвет фона');
-            $table->string('text_color')->comment('Цвет текста');
+            $table->json('name')->comment('Name');
+            $table->string('bg_color')->comment('Color of text background');
+            $table->string('text_color')->comment('Color of text');
+            $table->foreignId('parent_tag_id')->nullable()->comment('Child of');
 
             $table->timestamps();
         });
