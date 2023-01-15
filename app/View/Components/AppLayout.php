@@ -16,7 +16,9 @@ class AppLayout extends Component
     public function render(): View
     {
         $sections = Tag::query()
-            ->where('');
+            ->root()
+            ->get();
+
         return view('layouts.app');
     }
 }
