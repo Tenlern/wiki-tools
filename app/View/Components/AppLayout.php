@@ -2,7 +2,7 @@
 
 namespace App\View\Components;
 
-use App\Models\Tag;
+use App\Models\Section;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
@@ -15,10 +15,8 @@ class AppLayout extends Component
      */
     public function render(): View
     {
-        $sections = Tag::query()
-            ->root()
-            ->get();
+        $sections = Section::get();
 
-        return view('layouts.app');
+        return view('layouts.app', ['sections' => $sections]);
     }
 }
